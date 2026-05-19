@@ -1,4 +1,4 @@
-# Plantilla2D
-Plantilla base para proyectos en 2D con P5.JS
+Plantilla 3D
+Plantilla base para proyectos en 3D con P5.JS
 
-Ultima actualización: 11/02/2025
+Ultima actualización: 19/05/2026
