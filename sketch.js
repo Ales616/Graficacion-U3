@@ -32,34 +32,41 @@
   function draw() {
     background(30);
     // Draw the video
-   // image(flippedVideo, 0, 0);
+   // image(flippedVideo, 0, 0); esta linea peta todo
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
 
-    // Draw the label
-   // fill(255);
-   // textSize(16);
-    //textAlign(CENTER);
-    //text(label, width / 2, height - 4);
- 
+    text("TEST", width / 2, height / 2);
 
     push();
-    translate(-100, 100, 100);  
+    translate(-width / 2 + 150, -height / 2 + 100);  
     texture(video);
-    noStroke();
-    plane(100, 100);
+    plane(300, 200);
     pop();
 
-    
-    
     push()
     //texture(ryuTextura) se ve bien feo mejor lo dejo asi xdddd
     ambientLight(100);
     directionalLight(255);
     normalMaterial()
-    translate(0,-100,0)
-    rotateY(frameCount * 0.01);
-    scale(1000)
+    translate(0,200,0)
+    rotateX(350)
+    rotateZ(600)
+    scale(800)
     model(ryu)
     pop()
+
+    resetMatrix();
+    translate(-width / 2, -height / 2);
+
+    push();
+    resetMatrix();
+    fill(255);
+    textSize(24);
+    textAlign(CENTER, CENTER);
+    text(label, width / 2, height - 30); // no jala
+    pop();
   }
 
   // Get a prediction for the current video frame
