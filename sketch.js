@@ -20,9 +20,9 @@
   function setup() {
     createCanvas(1280, 720, WEBGL);
     // Create the video
-    // = createCapture(VIDEO);
-    //video.size(320, 240);
-    //video.hide();
+    video = createCapture(VIDEO);
+    video.size(320, 240);
+    video.hide();
 
     //flippedVideo = ml5.flipImage(video);
     // Start classifying
@@ -39,16 +39,25 @@
    // textSize(16);
     //textAlign(CENTER);
     //text(label, width / 2, height - 4);
+ 
 
-     orbitControl()
+    push();
+    translate(-100, 100, 100);  
+    texture(video);
+    noStroke();
+    plane(100, 100);
+    pop();
 
-    ambientLight(100);
-    directionalLight(255, 255, 255, 0, 0, -1);
+    
     
     push()
+    //texture(ryuTextura) se ve bien feo mejor lo dejo asi xdddd
+    ambientLight(100);
+    directionalLight(255);
     normalMaterial()
     translate(0,-100,0)
-    scale(100)
+    rotateY(frameCount * 0.01);
+    scale(1000)
     model(ryu)
     pop()
   }
