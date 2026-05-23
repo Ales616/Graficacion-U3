@@ -2,40 +2,55 @@
   let classifier;
   // Model URL
   let imageModelURL = './my_model/';
-  //hola papus como estan probando branch ryu
   // Video
   let video;
   let flippedVideo;
   // To store the classification
   let label = "";
+  let ryu
 
   // Load the model first
   function preload() {
-    classifier = ml5.imageClassifier(imageModelURL + 'model.json');
+    //lassifier = ml5.imageClassifier(imageModelURL + 'model.json');
+     console.log("preload start");
+    ryu = loadModel("./models/untitled.obj")
+    ryuTextura = loadImage("./textures/skin_ryu_002_col.png")
   }
 
   function setup() {
-    createCanvas(320, 260);
+    createCanvas(1280, 720, WEBGL);
     // Create the video
-    video = createCapture(VIDEO);
-    video.size(320, 240);
-    video.hide();
+    // = createCapture(VIDEO);
+    //video.size(320, 240);
+    //video.hide();
 
-    flippedVideo = ml5.flipImage(video);
+    //flippedVideo = ml5.flipImage(video);
     // Start classifying
-    classifyVideo();
+    //classifyVideo();
   }
 
   function draw() {
-    background(0);
+    background(30);
     // Draw the video
-    image(flippedVideo, 0, 0);
+   // image(flippedVideo, 0, 0);
 
     // Draw the label
-    fill(255);
-    textSize(16);
-    textAlign(CENTER);
-    text(label, width / 2, height - 4);
+   // fill(255);
+   // textSize(16);
+    //textAlign(CENTER);
+    //text(label, width / 2, height - 4);
+
+     orbitControl()
+
+    ambientLight(100);
+    directionalLight(255, 255, 255, 0, 0, -1);
+    
+    push()
+    normalMaterial()
+    translate(0,-100,0)
+    scale(100)
+    model(ryu)
+    pop()
   }
 
   // Get a prediction for the current video frame
