@@ -2,7 +2,7 @@
   let classifier;
   // Model URL
   let imageModelURL = './my_model/';
-  
+  //hola papus como estan probando branch ryu
   // Video
   let video;
   let flippedVideo;
